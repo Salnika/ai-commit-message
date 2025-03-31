@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "git-commit-gen"  # Nom du package uniformisé
-version = "0.1.0"
+version = "0.1.1"
 description = "A tool to generate conventional commit messages using Gemini API"
 readme = "README.md"
 requires-python = ">=3.8"

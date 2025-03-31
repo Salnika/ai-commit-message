@@ -88,10 +88,10 @@ def generate_commit_message(modified_files, added_files, deleted_files):
     try:
         response = MODEL.generate_content(prompt)
         message = response.text.strip()
-        return message
+        return message, prompt
     except Exception as e:
         print(f"Error calling Gemini API: {e}")
-        return None
+        return None, None
 
 def is_conventional_commit_format(message):
     pattern = r"^(feat|fix|chore|docs|style|refactor|perf|test)(\([a-z0-9-]+\))?:\s.+"
@@ -111,7 +111,7 @@ def main():
         subprocess.run(["git", "commit"] + args)
         return
 
-    message = generate_commit_message(modified_files, added_files, deleted_files)
+    message, prompt = generate_commit_message(modified_files, added_files, deleted_files)
 
     if not message:
         print("Unable to generate commit message. Using standard git commit.")
@@ -121,7 +121,9 @@ def main():
     if not is_conventional_commit_format(message):
         print("Warning: Generated commit message may not follow Conventional Commits.")
         print("It is recommended to review and adjust the message before committing.")
-        print(f"Proposed message: {message}")
+
+    print("\nProposed commit message:")
+    print(message)
 
     if publish:
         subprocess.run(["git", "commit", "-m", message] + args)
@@ -140,14 +142,17 @@ def main():
             subprocess.run(["git", "commit", "-m", message] + args)
             break
         elif choice == "2":
-            message = generate_commit_message(modified_files, added_files, deleted_files)
+            message, prompt = generate_commit_message(modified_files, added_files, deleted_files)
             if not message:
                 print("Failed to regenerate commit message.")
                 continue
             if not is_conventional_commit_format(message):
                 print("Warning: Regenerated commit message may not follow Conventional Commits.")
                 print("It is recommended to review and adjust the message before committing.")
-                print(f"Proposed message: {message}")
+
+            print("\nProposed commit message:")
+            print(message)
+
         elif choice == "3":
             message = input("Enter your commit message: ")
             subprocess.run(["git", "commit", "-m", message] + args)
@@ -156,7 +161,7 @@ def main():
             print("Commit cancelled.")
             break
         else:
-            print("Invalid choice. Please enter a number between 1 and 4.")
+            print("Invalid choice. Please enter a number between 1 and 4")
 
 if __name__ == "__main__":
     main()
