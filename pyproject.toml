@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "ai-git-commit"
+name = "git-commit-gen"  # Nom du package uniformisé
 version = "0.1.0"
 description = "A tool to generate conventional commit messages using Gemini API"
 readme = "README.md"
@@ -16,7 +16,7 @@ dependencies = [
 ]
 
 [project.scripts]
-git-commit-gen = "ai_git_commit.ai_git_commit:main"
+git-commit-gen = "git_commit_gen.git_commit_gen:main"  # Point d’entrée mis à jour
 
 [tool.hatch.build.targets.wheel]
-packages = ["ai_git_commit"]
+packages = ["git_commit_gen"]

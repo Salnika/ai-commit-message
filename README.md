@@ -1,4 +1,4 @@
-# AI Git Commit
+# Git Commit Gen
 
 A command-line tool to automatically generate concise and informative commit messages following the [Conventional Commits specification](https://www.conventionalcommits.org/en/v1.0.0/) using the Google Gemini API.
 
@@ -13,7 +13,7 @@ A command-line tool to automatically generate concise and informative commit mes
 Install the package via pip:
 
 ```bash
-pip install ai-git-commit
+pip install git-commit-gen
 ```
 
 ### Prerequisites
@@ -92,10 +92,10 @@ If the generated message doesn't follow Conventional Commits:
 
 ### Project Structure
 ```
-ai_git_commit/
-├── ai_git_commit/
+git_commit_gen/
+├── git_commit_gen/
 │   ├── __init__.py
-│   └── ai_git_commit.py
+│   └── git_commit_gen.py
 ├── pyproject.toml
 └── README.md
 ```
@@ -109,7 +109,7 @@ python -m build
 
 ### Install Locally
 ```bash
-pip install dist/ai_git_commit-0.1.0-py3-none-any.whl
+pip install dist/git_commit_gen-0.1.0-py3-none-any.whl
 ```
 
 ## Contributing
