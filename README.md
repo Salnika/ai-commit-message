@@ -1,6 +1,6 @@
 # Git Commit Gen
 [![PyPI version](https://badge.fury.io/py/git-commit-gen.svg)](https://pypi.org/project/git-commit-gen/)
-[![Build Status](https://github.com/salnika/ai-commit-message/actions/workflows/deploy.yml/badge.svg)](https://github.com/salnika/ai-commit-message/actions)
+[![Build Status](https://github.com/salnika/git-commit-gen/actions/workflows/deploy.yml/badge.svg)](https://github.com/salnika/git-commit-gen/actions)
 
 A command-line tool to automatically generate concise and informative commit messages following the [Conventional Commits specification](https://www.conventionalcommits.org/en/v1.0.0/) using the Google Gemini API.
 
