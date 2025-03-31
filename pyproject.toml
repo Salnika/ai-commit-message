@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "git-commit-gen"  # Nom du package uniformisé
-version = "0.1.1"
+version = "0.1.2"
 description = "A tool to generate conventional commit messages using Gemini API"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -14,6 +14,11 @@ dependencies = [
     "pygit2>=1.12.0",
     "python-dotenv>=1.0.0"
 ]
+
+[project.urls]
+repository = "https://github.com/salnika/git-commit-gen"
+homepage = "https://github.com/salnika/git-commit-gen"
+
 
 [project.scripts]
 git-commit-gen = "git_commit_gen.git_commit_gen:main"  # Point d’entrée mis à jour
