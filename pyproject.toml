@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ai-git-commit"
+version = "0.1.0"
+description = "A tool to generate conventional commit messages using Gemini API"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "google-generativeai>=0.5.0",
+    "pygit2>=1.12.0",
+    "python-dotenv>=1.0.0"
+]
+
+[project.scripts]
+git-commit-gen = "ai_git_commit.ai_git_commit:main"  # Point d'entrée avec underscores
+
+[tool.hatch.build.targets.wheel]
+packages = ["ai_git_commit"]
